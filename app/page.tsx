@@ -8,17 +8,39 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ScrollText, FileCheck, UserCheck2, FileText, CheckCircle, Phone, Scale, Mail } from "lucide-react"
 import Image from 'next/image'
 import Link from 'next/link'
+import emailjs from '@emailjs/browser';
 
 export default function LawFirmLandingPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Form submitted:', { name, email, message })
-    // Handle form submission logic here
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const result = await emailjs.send(
+        'service_fne3sly',     // Replace with your Service ID
+        'template_czv2ip4',    // Replace with your Template ID
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+          to_name: 'Legal Legends Law Associates', // Add this if you used it in template
+        },
+        'UoXECWsNw6Vnz9Yol'   // Replace with your Public Key
+      );
+
+      if (result.text === 'OK') {
+        alert('Message sent successfully!');
+        setName('');
+        setEmail('');
+        setMessage('');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to send message. Please try again.');
+    }
+  };
   
   const founder = {
     name: "P. Vijayakumar",
