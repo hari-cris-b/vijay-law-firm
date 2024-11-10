@@ -104,13 +104,13 @@ export default function LawFirmLandingPage() {
               <Button asChild>
                 <a href="tel:8548168251" className="inline-flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  <span>8548168251</span>
+                  <span>8248168261</span>
                 </a>
               </Button>
               <Button asChild>
                 <a href="tel:8602818989" className="inline-flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  <span>8602818989</span>
+                  <span>8682819999</span>
                 </a>
               </Button>
             </div>
@@ -279,13 +279,13 @@ export default function LawFirmLandingPage() {
                   <Button asChild variant="outline">
                     <a href="tel:8548168251" className="inline-flex items-center gap-2">
                       <Phone className="h-4 w-4" />
-                      <span>8548168251</span>
+                      <span>8248168261</span>
                     </a>
                   </Button>
                   <Button asChild variant="outline">
                     <a href="tel:8602818989" className="inline-flex items-center gap-2">
                       <Phone className="h-4 w-4" />
-                      <span>8602818989</span>
+                      <span>8682819999</span>
                     </a>
                   </Button>
                 </div>
@@ -301,8 +301,8 @@ export default function LawFirmLandingPage() {
           <p className="mb-4">Madras High Court, Chennai</p>
           <div className="flex justify-center items-center gap-4 mb-4">
             <Phone className="h-4 w-4" />
-            <a href="tel:8548168251" className="hover:text-primary">8548168251</a>
-            <a href="tel:8602818989" className="hover:text-primary">8602818989</a>
+            <a href="tel:8248168261" className="hover:text-primary">8548168251</a>
+            <a href="tel:8682819999" className="hover:text-primary">8602818989</a>
           </div>
           <div className="flex justify-center items-center gap-2">
             <Mail className="h-4 w-4" />
