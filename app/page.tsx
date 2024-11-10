@@ -102,13 +102,13 @@ export default function LawFirmLandingPage() {
             <p className="text-xl mb-8">Dedicated to providing comprehensive legal services with integrity and professionalism</p>
             <div className="flex justify-center gap-4">
               <Button asChild>
-                <a href="tel:8548168251" className="inline-flex items-center gap-2">
+                <a href="tel:8248168261" className="inline-flex items-center gap-2">
                   <Phone className="h-4 w-4" />
                   <span>8248168261</span>
                 </a>
               </Button>
               <Button asChild>
-                <a href="tel:8602818989" className="inline-flex items-center gap-2">
+                <a href="tel:8682819999" className="inline-flex items-center gap-2">
                   <Phone className="h-4 w-4" />
                   <span>8682819999</span>
                 </a>
