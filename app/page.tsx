@@ -5,10 +5,24 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { ScrollText, FileCheck, UserCheck2, FileText, CheckCircle, Phone, Scale, Mail } from "lucide-react"
+import { Home, Briefcase, Scale, FileCheck, Car, Shield, Calculator, Phone, Mail, Users, CheckCircle, Heart, Award, Target, ShieldCheck } from "lucide-react"
 import Image from 'next/image'
 import Link from 'next/link'
-import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser'
+import { motion } from 'framer-motion'
+import {
+  fadeIn,
+  slideInFromBottom,
+  staggerChildren,
+  cardHover,
+  fadeInFromLeft,
+  fadeInFromRight,
+  pulseAnimation,
+  rotateScale,
+  slideInFromTop,
+  buttonTapAnimation,
+  cardAnimation
+} from '@/lib/animations'
 
 export default function LawFirmLandingPage() {
   const [name, setName] = useState('')
@@ -19,15 +33,15 @@ export default function LawFirmLandingPage() {
     e.preventDefault();
     try {
       const result = await emailjs.send(
-        'service_fne3sly',     // Replace with your Service ID
-        'template_czv2ip4',    // Replace with your Template ID
+        'service_fne3sly',
+        'template_czv2ip4',
         {
           from_name: name,
           from_email: email,
           message: message,
-          to_name: 'Legal Legends Law Associates', // Add this if you used it in template
+          to_name: 'Crusaders Law Firm',
         },
-        'UoXECWsNw6Vnz9Yol'   // Replace with your Public Key
+        'UoXECWsNw6Vnz9Yol'
       );
 
       if (result.text === 'OK') {
@@ -44,95 +58,160 @@ export default function LawFirmLandingPage() {
   
   const founder = {
     name: "P. Vijayakumar",
-    title: "Senior Advocate",
+    title: "Advocate",
     qualification: "MBA, BL.",
     role: "Founder & Managing Partner",
-    image: "/images/placeholder.png"
+    image: "/images/P.Vijayakumar.png"
   };
 
+  const seniorTeam = [
+    { name: "K.M. Anand Joshi", qualification: "BA, BL." },
+    { name: "E. Jenni", qualification: "BA, BL." },
+    { name: "M. Duraimurugan", qualification: "BA, BL." },
+    { name: "R.G. Sridhar", qualification: "BA, BL." },
+    { name: "T. Dhayalamoorthy", qualification: "BA, BL." }
+  ];
+
   const teamMembers = [
+    { name: "P. Dinesh Saravanan", title: "Advocate", qualification: "BA, BL.", role: "Associate" },
     { name: "J. Jaya Pradhap", title: "Advocate", qualification: "BE,BL.", role: "Associate" },
     { name: "K. Jaganathan", title: "Advocate", qualification: "M.Com, BL.", role: "Associate" },
     { name: "S. Sathish", title: "Advocate", qualification: "M.Com, BL.", role: "Associate" },
     { name: "G. Jebaraj", title: "Advocate", qualification: "B.Sc, BL.", role: "Associate" },
     { name: "V. Vignesh", title: "Advocate", qualification: "BA, BL.", role: "Associate" },
     { name: "K. Balaganesh", title: "Advocate", qualification: "BA, BL.", role: "Associate" },
-    { name: "M. Ashwini Maruthupandi", title: "Advocate", qualification: "BCA, BL.", role: "Associate" }
-  ]
+    { name: "P. Gayathri Pandian", title: "Advocate", qualification: "BA, BL.", role: "Associate" },
+    { name: "M. Ashwini Maruthupandi", title: "Advocate", qualification: "BCA, BL.", role: "Associate" }    
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+      <motion.header 
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        className="bg-gray-900 text-white shadow-lg sticky top-0 z-50"
+      >
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
-              <Scale className="h-8 w-8 mr-2" />
+              <Image
+                src="/images/Vletter.png"
+                alt="Crusaders Law Firm Logo"
+                width={60}
+                height={60}
+                className="mr-2"
+              />
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold">Legal Legends Law Associates</h1>
+                <h1 className="text-2xl md:text-3xl font-bold">Crusaders Law Firm</h1>
                 <p className="text-gray-300">Madras High Court, Chennai</p>
               </div>
             </div>
             <nav>
               <ul className="flex space-x-6">
-                <li><Link href="#home" className="hover:text-primary">Home</Link></li>
-                <li><Link href="#about" className="hover:text-primary">About</Link></li>
-                <li><Link href="#services" className="hover:text-primary">Services</Link></li>
-                <li><Link href="#team" className="hover:text-primary">Team</Link></li>
-                <li><Link href="#contact" className="hover:text-primary">Contact</Link></li>
+                <li><Link href="#home" className="hover:text-yellow-400 transition-colors">Home</Link></li>
+                <li><Link href="#about" className="hover:text-yellow-400 transition-colors">About</Link></li>
+                <li><Link href="#why-choose-us" className="hover:text-yellow-400 transition-colors">Why Choose Us</Link></li>
+                <li><Link href="#services" className="hover:text-yellow-400 transition-colors">Services</Link></li>
+                <li><Link href="#team" className="hover:text-yellow-400 transition-colors">Team</Link></li>
+                <li><Link href="#contact" className="hover:text-yellow-400 transition-colors">Contact</Link></li>
               </ul>
             </nav>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       <main>
-        <section id="home" className="relative bg-gray-800 text-white py-32">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+          id="home"
+          className="relative bg-gray-800 text-white py-32"
+        >
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/court.webp?height=1080&width=1920"
+              src="/images/court.webp"
               alt="Court background"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
               quality={100}
             />
             <div className="absolute inset-0 bg-black opacity-60"></div>
           </div>
-          <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.div
+            variants={slideInFromBottom}
+            className="container mx-auto px-4 text-center relative z-10"
+          >
             <h2 className="text-4xl font-bold mb-4">Expert Legal Solutions</h2>
             <p className="text-xl mb-8">Dedicated to providing comprehensive legal services with integrity and professionalism</p>
             <div className="flex justify-center gap-4">
-              <Button asChild>
-                <a href="tel:8248168261" className="inline-flex items-center gap-2">
-                  <Phone className="h-4 w-4" />
-                  <span>8248168261</span>
-                </a>
-              </Button>
-              <Button asChild>
-                <a href="tel:8682819999" className="inline-flex items-center gap-2">
-                  <Phone className="h-4 w-4" />
-                  <span>8682819999</span>
-                </a>
-              </Button>
+              <motion.div whileTap="tap" variants={buttonTapAnimation}>
+                <Button asChild>
+                  <a href="tel:8248168261" className="inline-flex items-center gap-2">
+                    <motion.div
+                      initial="initial"
+                      animate="animate"
+                      variants={pulseAnimation}
+                    >
+                      <Phone className="h-4 w-4" />
+                    </motion.div>
+                    <span>8248168261</span>
+                  </a>
+                </Button>
+              </motion.div>
+              <motion.div whileTap="tap" variants={buttonTapAnimation}>
+                <Button asChild>
+                  <a href="tel:8682819999" className="inline-flex items-center gap-2">
+                    <motion.div
+                      initial="initial"
+                      animate="animate"
+                      variants={pulseAnimation}
+                    >
+                      <Phone className="h-4 w-4" />
+                    </motion.div>
+                    <span>8682819999</span>
+                  </a>
+                </Button>
+              </motion.div>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
-        <section id="about" className="py-20">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          id="about"
+          className="py-20"
+        >
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">About Us</h2>
+            <motion.h2
+              variants={slideInFromTop}
+              className="text-3xl font-bold text-center mb-12"
+            >
+              <motion.span
+                initial="initial"
+                animate="animate"
+                variants={pulseAnimation}
+              >
+                About Us
+              </motion.span>
+            </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <div>
+              <motion.div variants={fadeInFromLeft}>
                 <h3 className="text-2xl font-bold mb-4">Our Legacy</h3>
                 <p className="text-lg mb-4">
-                  Legal Legends Law Associates is a prestigious law firm based in Chennai, specializing in various aspects of legal services. 
+                  Crusaders Law Firm is a prestigious law firm based in Chennai, specializing in various aspects of legal services.
                   Our firm has built a strong reputation for providing exceptional legal solutions with a commitment to integrity and professional excellence.
                 </p>
                 <p className="text-lg mb-4">
                   Led by experienced advocates, our team brings together decades of combined experience in handling complex legal matters, 
                   from property documentation to marriage registration and notary services.
                 </p>
-              </div>
-              <div>
+              </motion.div>
+              <motion.div variants={fadeInFromRight}>
                 <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
                 <p className="text-lg mb-4">
                   We are dedicated to providing comprehensive legal solutions while maintaining the highest standards of professional ethics. 
@@ -147,111 +226,307 @@ export default function LawFirmLandingPage() {
                   <li>Notary Public Services</li>
                   <li>Legal Consultation</li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="services" className="bg-gray-100 py-20">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerChildren}
+          id="why-choose-us"
+          className="py-20 bg-white"
+        >
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <motion.h2
+              variants={slideInFromTop}
+              className="text-3xl font-bold text-center mb-12"
+            >
+              <motion.span
+                initial="initial"
+                animate="animate"
+                variants={pulseAnimation}
+              >
+                Why Choose Us?
+              </motion.span>
+            </motion.h2>
+            <motion.div
+              variants={staggerChildren}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              <WhyChooseCard
+                icon={<Users className="h-8 w-8" />}
+                title="Experienced Team"
+                description="Our skilled lawyers bring years of expertise to handle complex cases effectively."
+              />
+              <WhyChooseCard
+                icon={<CheckCircle className="h-8 w-8" />}
+                title="Comprehensive Services"
+                description="From property law to litigation, we offer a full range of legal support."
+              />
+              <WhyChooseCard
+                icon={<Heart className="h-8 w-8" />}
+                title="Client-Centered Approach"
+                description="We focus on understanding your unique needs and providing personalized solutions."
+              />
+              <WhyChooseCard
+                icon={<Award className="h-8 w-8" />}
+                title="Integrity and Transparency"
+                description="Our work is guided by honesty, ensuring trust and confidence in every interaction."
+              />
+              <WhyChooseCard
+                icon={<Target className="h-8 w-8" />}
+                title="Personalized Strategies"
+                description="Tailored legal strategies aligned with your circumstances and objectives."
+              />
+              <WhyChooseCard
+                icon={<ShieldCheck className="h-8 w-8" />}
+                title="Ethical Integrity"
+                description="Adherence to the highest standards of ethics and professionalism."
+              />
+            </motion.div>
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerChildren}
+          id="services"
+          className="bg-gray-100 py-20"
+        >
+          <div className="container mx-auto px-4">
+            <motion.h2
+              variants={slideInFromTop}
+              className="text-3xl font-bold text-center mb-12"
+            >
+              <motion.span
+                initial="initial"
+                animate="animate"
+                variants={pulseAnimation}
+              >
+                Our Services
+              </motion.span>
+            </motion.h2>
+            <motion.div
+              variants={staggerChildren}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
               <ServiceCard
-                icon={<ScrollText className="h-8 w-8" />}
-                title="Legal Consultation"
-                description="Expert legal consultation for all your needs"
+                icon={<Home className="h-8 w-8" />}
+                title="Property Law"
+                description="Secure and manage property transactions with confidence. Property law governs rights and obligations related to ownership, use, and transfer of property."
+              />
+              <ServiceCard
+                icon={<Briefcase className="h-8 w-8" />}
+                title="Business Law"
+                description="Comprehensive legal guidance for business operations. Business law governs rights, relations, and conduct of individuals and businesses engaged in commerce."
+              />
+              <ServiceCard
+                icon={<Scale className="h-8 w-8" />}
+                title="Litigation & Family"
+                description="Strong representation in disputes and family legal matters. Handles court disputes and family law including marriage, divorce, and child custody."
               />
               <ServiceCard
                 icon={<FileCheck className="h-8 w-8" />}
-                title="Property Documentation"
-                description="Title verification of property documents"
+                title="Visa & Notary"
+                description="Quick, reliable support for visas and document notarization. Guide clients through visa requirements and authenticate signatures and documents."
               />
               <ServiceCard
-                icon={<UserCheck2 className="h-8 w-8" />}
-                title="Marriage Registration"
-                description="Complete marriage registration services"
+                icon={<Car className="h-8 w-8" />}
+                title="Driving License"
+                description="Simple steps to help you secure your driving license — guidance on tests, documentation and usage as identification."
               />
               <ServiceCard
-                icon={<FileText className="h-8 w-8" />}
-                title="Online Registration"
-                description="Assistance with all types of online registrations"
+                icon={<Shield className="h-8 w-8" />}
+                title="Police Case Support"
+                description="Reliable representation in police-related cases — guidance on rights, reporting, evidence, and preparation for court appearances."
               />
               <ServiceCard
-                icon={<CheckCircle className="h-8 w-8" />}
-                title="Attestation & Affidavit"
-                description="Document attestation and affidavit services"
+                icon={<Calculator className="h-8 w-8" />}
+                title="Accounting Services"
+                description="Professional financial solutions including bookkeeping, tax prep, financial reporting, payroll, and forecasting to support compliance and transparency."
               />
-              <ServiceCard
-                icon={<ScrollText className="h-8 w-8" />}
-                title="Notary Services"
-                description="Notary public and indemnity bonds"
-              />
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="team" className="py-20">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerChildren}
+          id="team"
+          className="py-20"
+        >
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Our Team</h2>
+            <motion.h2
+              variants={slideInFromTop}
+              className="text-3xl font-bold text-center mb-12"
+            >
+              <motion.span
+                initial="initial"
+                animate="animate"
+                variants={pulseAnimation}
+              >
+                Our Senior Advocate Team
+              </motion.span>
+            </motion.h2>
+            
+            <motion.div 
+              variants={staggerChildren}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-20"
+            >
+              {seniorTeam.map((member) => (
+                <motion.div
+                  key={member.name}
+                  variants={cardAnimation}
+                  initial="hidden"
+                  whileInView="visible"
+                  whileHover="hover"
+                  whileTap="tap"
+                  viewport={{ once: true }}
+                  className="transform-gpu"
+                >
+                  <Card className="overflow-hidden transition-colors hover:bg-gray-50">
+                    <CardContent className="p-6 text-center">
+                      <Image
+                        src="/images/placeholder.png"
+                        alt={member.name}
+                        width={150}
+                        height={150}
+                        className="rounded-full mx-auto mb-4"
+                      />
+                      <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                      <p className="text-primary font-semibold mb-1">Senior Advocate</p>
+                      <p className="text-gray-600 mb-1">{member.qualification}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.h2
+              variants={slideInFromTop}
+              className="text-3xl font-bold text-center mb-12"
+            >
+              <motion.span
+                initial="initial"
+                animate="animate"
+                variants={pulseAnimation}
+              >
+                Our Team
+              </motion.span>
+            </motion.h2>
             
             {/* Founder Card */}
-            <div className="max-w-sm mx-auto mb-12">
-              <Card className="transition-transform hover:scale-105">
-                <CardContent className="p-6 text-center">
-                  <Image
-                    src={founder.image}
-                    alt={founder.name}
-                    width={150}
-                    height={150}
-                    className="rounded-full mx-auto mb-4"
-                  />
-                  <h3 className="text-xl font-bold mb-2">{founder.name}</h3>
-                  <p className="text-primary font-semibold mb-1">{founder.title}</p>
-                  <p className="text-gray-600 mb-1">{founder.qualification}</p>
-                  <p className="text-gray-500">{founder.role}</p>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Other Team Members */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {teamMembers.map((member) => (
-                <Card key={member.name} className="transition-transform hover:scale-105">
+            <motion.div 
+              variants={fadeIn}
+              className="max-w-sm mx-auto mb-12"
+            >
+              <motion.div whileHover="hover" initial="initial" variants={cardHover}>
+                <Card>
                   <CardContent className="p-6 text-center">
                     <Image
-                      src="/images/placeholder.png"
-                      alt={member.name}
-                      width={150}
-                      height={150}
+                      src={founder.image}
+                      alt={founder.name}
+                      width={250}
+                      height={250}
                       className="rounded-full mx-auto mb-4"
+                      priority
+                      onError={(e) => {
+                        console.error('Error loading image:', e);
+                        // Fallback to placeholder if image fails to load
+                        const imgElement = e.target as HTMLImageElement;
+                        imgElement.src = '/images/placeholder.png';
+                      }}
                     />
-                    <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                    <p className="text-primary font-semibold mb-1">{member.title}</p>
-                    <p className="text-gray-600 mb-1">{member.qualification}</p>
-                    <p className="text-gray-500">{member.role}</p>
+                    <h3 className="text-xl font-bold mb-2">{founder.name}</h3>
+                    <p className="text-primary font-semibold mb-1">{founder.title}</p>
+                    <p className="text-gray-600 mb-1">{founder.qualification}</p>
+                    <p className="text-gray-500">{founder.role}</p>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+              </motion.div>
+            </motion.div>
 
-        <section id="contact" className="bg-gray-100 py-20">
+            {/* Other Team Members */}
+            <motion.div 
+              variants={staggerChildren}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+            >
+              {teamMembers.map((member) => (
+                <motion.div
+                  key={member.name}
+                  variants={cardAnimation}
+                  initial="hidden"
+                  whileInView="visible"
+                  whileHover="hover"
+                  whileTap="tap"
+                  viewport={{ once: true }}
+                  className="transform-gpu"
+                >
+                  <Card>
+                    <CardContent className="p-6 text-center">
+                      <Image
+                        src="/images/placeholder.png"
+                        alt={member.name}
+                        width={150}
+                        height={150}
+                        className="rounded-full mx-auto mb-4"
+                      />
+                      <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                      <p className="text-primary font-semibold mb-1">{member.title}</p>
+                      <p className="text-gray-600 mb-1">{member.qualification}</p>
+                      <p className="text-gray-500">{member.role}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+          id="contact"
+          className="bg-gray-100 py-20"
+        >
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2>
-            <div className="max-w-md mx-auto">
+            <motion.h2
+              variants={slideInFromTop}
+              className="text-3xl font-bold text-center mb-12"
+            >
+              <motion.span
+                initial="initial"
+                animate="animate"
+                variants={pulseAnimation}
+              >
+                Contact Us
+              </motion.span>
+            </motion.h2>
+            <motion.div
+              variants={fadeIn}
+              className="max-w-md mx-auto"
+            >
               <Card>
                 <CardContent className="p-6">
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                       <Input
                         placeholder="Your Name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
                       />
-                    </div>
-                    <div>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                       <Input
                         type="email"
                         placeholder="Your Email"
@@ -259,8 +534,8 @@ export default function LawFirmLandingPage() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                       />
-                    </div>
-                    <div>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                       <Textarea
                         placeholder="Your Message"
                         value={message}
@@ -268,8 +543,22 @@ export default function LawFirmLandingPage() {
                         required
                         className="min-h-[100px]"
                       />
-                    </div>
-                    <Button type="submit" className="w-full">Send Message</Button>
+                    </motion.div>
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      variants={buttonTapAnimation}
+                      whileTap="tap"
+                    >
+                      <Button type="submit" className="w-full">
+                        <motion.span
+                          initial="initial"
+                          animate="animate"
+                          variants={pulseAnimation}
+                        >
+                          Send Message
+                        </motion.span>
+                      </Button>
+                    </motion.div>
                   </form>
                 </CardContent>
               </Card>
@@ -290,38 +579,85 @@ export default function LawFirmLandingPage() {
                   </Button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
       </main>
 
-      <footer className="bg-gray-900 text-white py-8">
+      <motion.footer
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        className="bg-gray-900 text-white py-8"
+      >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-xl font-bold mb-4">Legal Legends Law Associates</h2>
+          <h2 className="text-xl font-bold mb-4">Crusaders Law Firm</h2>
           <p className="mb-4">Madras High Court, Chennai</p>
           <div className="flex justify-center items-center gap-4 mb-4">
             <Phone className="h-4 w-4" />
-            <a href="tel:8248168261" className="hover:text-primary">8248168261</a>
-            <a href="tel:8682819999" className="hover:text-primary">8682819999</a>
+            <a href="tel:8248168261" className="hover:text-gray-300 transition-colors">8248168261</a>
+            <a href="tel:8682819999" className="hover:text-gray-300 transition-colors">8682819999</a>
           </div>
           <div className="flex justify-center items-center gap-2">
             <Mail className="h-4 w-4" />
-            <a href="mailto:info@legallegends.com" className="hover:text-primary">info@legallegends.com</a>
+            <a href="mailto:info@crusaderslawfirm.com" className="hover:text-gray-300 transition-colors">info@crusaderslawfirm.com</a>
           </div>
         </div>
-      </footer>
+      </motion.footer>
     </div>
   )
 }
 
 function ServiceCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <Card className="transition-transform hover:scale-105">
-      <CardContent className="p-6 text-center">
-        <div className="mb-4 flex justify-center text-primary">{icon}</div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-gray-600">{description}</p>
-      </CardContent>
-    </Card>
+    <motion.div
+      variants={fadeIn}
+      whileHover="hover"
+      initial="initial"
+      viewport={{ once: true }}
+    >
+      <Card>
+        <CardContent className="p-6 text-center">
+          <motion.div
+            className="mb-4 flex justify-center text-primary"
+            initial="initial"
+            animate="animate"
+            variants={rotateScale}
+            whileHover={{ scale: 1.3 }}
+          >
+            {icon}
+          </motion.div>
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-gray-600">{description}</p>
+        </CardContent>
+      </Card>
+    </motion.div>
+  )
+}
+
+function WhyChooseCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+  return (
+    <motion.div
+      variants={fadeIn}
+      whileHover="hover"
+      initial="initial"
+      viewport={{ once: true }}
+    >
+      <Card>
+        <CardContent className="p-6 text-center">
+          <motion.div
+            className="mb-4 flex justify-center text-primary"
+            initial="initial"
+            animate="animate"
+            variants={rotateScale}
+            whileHover={{ scale: 1.3 }}
+          >
+            {icon}
+          </motion.div>
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-gray-600">{description}</p>
+        </CardContent>
+      </Card>
+    </motion.div>
   )
 }
