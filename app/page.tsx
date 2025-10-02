@@ -29,6 +29,7 @@ export default function LawFirmLandingPage() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
