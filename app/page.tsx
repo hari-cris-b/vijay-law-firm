@@ -93,14 +93,14 @@ export default function LawFirmLandingPage() {
         variants={fadeIn}
         className="bg-gray-900 text-white shadow-lg sticky top-0 z-50"
       >
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-1 py-1">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
               <Image
-                src="/images/Vletter.png"
+                src="/images/CLFico2.png"
                 alt="Crusaders Law Firm Logo"
-                width={60}
-                height={60}
+                width={100}
+                height={100}
                 className="mr-2"
               />
               <div>
@@ -592,16 +592,22 @@ export default function LawFirmLandingPage() {
         className="bg-gray-900 text-white py-8"
       >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-xl font-bold mb-4">Crusaders Law Firm</h2>
+          <Image
+            src="/images/CLFico2.png"
+            alt="Crusaders Law Firm Logo"
+            width={150}
+            height={150}
+            className="mx-auto gap-4 mb-4"
+          />
           <p className="mb-4">Madras High Court, Chennai</p>
           <div className="flex justify-center items-center gap-4 mb-4">
             <Phone className="h-4 w-4" />
-            <a href="tel:8248168261" className="hover:text-gray-300 transition-colors">8248168261</a>
-            <a href="tel:8682819999" className="hover:text-gray-300 transition-colors">8682819999</a>
+            <a href="tel:8248168261" className="hover:text-yellow-400 transition-colors">8248168261</a>
+            <a href="tel:8682819999" className="hover:text-yellow-400 transition-colors">8682819999</a>
           </div>
           <div className="flex justify-center items-center gap-2">
             <Mail className="h-4 w-4" />
-            <a href="mailto:info@crusaderslawfirm.com" className="hover:text-gray-300 transition-colors">info@crusaderslawfirm.com</a>
+            <a href="mailto:info@crusaderslawfirm.com" className="hover:text-yellow-400 transition-colors">info@crusaderslawfirm.com</a>
           </div>
         </div>
       </motion.footer>
