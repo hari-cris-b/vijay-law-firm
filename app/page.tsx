@@ -145,12 +145,12 @@ export default function LawFirmLandingPage() {
             variants={slideInFromBottom}
             className="container mx-auto px-4 text-center relative z-10"
           >
-            <h2 className="text-4xl font-bold mb-4">Expert Legal Solutions</h2>
+            <h2 className="text-4xl font-bold mb-4 text-yellow-400">Expert Legal Solutions</h2>
             <p className="text-xl mb-8">Dedicated to providing comprehensive legal services with integrity and professionalism</p>
             <div className="flex justify-center gap-4">
               <motion.div whileTap="tap" variants={buttonTapAnimation}>
                 <Button asChild>
-                  <a href="tel:8248168261" className="inline-flex items-center gap-2">
+                  <a href="tel:8248168261" className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors">
                     <motion.div
                       initial="initial"
                       animate="animate"
@@ -158,13 +158,13 @@ export default function LawFirmLandingPage() {
                     >
                       <Phone className="h-4 w-4" />
                     </motion.div>
-                    <span>8248168261</span>
+                    <span>(824)-816-8261</span>
                   </a>
                 </Button>
               </motion.div>
               <motion.div whileTap="tap" variants={buttonTapAnimation}>
                 <Button asChild>
-                  <a href="tel:8682819999" className="inline-flex items-center gap-2">
+                  <a href="tel:8682819999" className="inline-flex items-center gap-2 hover:text-yellow-400 transition-colors">
                     <motion.div
                       initial="initial"
                       animate="animate"
@@ -172,7 +172,7 @@ export default function LawFirmLandingPage() {
                     >
                       <Phone className="h-4 w-4" />
                     </motion.div>
-                    <span>8682819999</span>
+                    <span>(868)-281-9999</span>
                   </a>
                 </Button>
               </motion.div>
@@ -187,6 +187,13 @@ export default function LawFirmLandingPage() {
           id="about"
           className="py-20"
         >
+          <Image
+            src="/images/LogoHead2.png"
+            alt="Crusaders Law Firm Logo"
+            width={300}
+            height={300}
+            className="mx-auto gap-4 mb-4"
+          />
           <div className="container mx-auto px-4">
             <motion.h2
               variants={slideInFromTop}
@@ -240,6 +247,13 @@ export default function LawFirmLandingPage() {
           id="why-choose-us"
           className="py-20 bg-white"
         >
+          <Image
+            src="/images/LogoHead2.png"
+            alt="Crusaders Law Firm Logo"
+            width={300}
+            height={300}
+            className="mx-auto gap-4 mb-4"
+          />
           <div className="container mx-auto px-4">
             <motion.h2
               variants={slideInFromTop}
@@ -299,6 +313,13 @@ export default function LawFirmLandingPage() {
           id="services"
           className="bg-gray-100 py-20"
         >
+          <Image
+            src="/images/LogoHead2.png"
+            alt="Crusaders Law Firm Logo"
+            width={300}
+            height={300}
+            className="mx-auto gap-4 mb-4"
+          />          
           <div className="container mx-auto px-4">
             <motion.h2
               variants={slideInFromTop}
@@ -363,6 +384,13 @@ export default function LawFirmLandingPage() {
           id="team"
           className="py-20"
         >
+          <Image
+            src="/images/LogoHead2.png"
+            alt="Crusaders Law Firm Logo"
+            width={300}
+            height={300}
+            className="mx-auto gap-4 mb-4"
+          />          
           <div className="container mx-auto px-4">
             <motion.h2
               variants={slideInFromTop}
@@ -414,6 +442,13 @@ export default function LawFirmLandingPage() {
               variants={slideInFromTop}
               className="text-3xl font-bold text-center mb-12"
             >
+            <Image
+              src="/images/LogoHead2.png"
+              alt="Crusaders Law Firm Logo"
+              width={300}
+              height={300}
+              className="mx-auto gap-4 mb-4"
+            />              
               <motion.span
                 initial="initial"
                 animate="animate"
@@ -499,6 +534,13 @@ export default function LawFirmLandingPage() {
           id="contact"
           className="bg-gray-100 py-20"
         >
+          <Image
+            src="/images/LogoHead2.png"
+            alt="Crusaders Law Firm Logo"
+            width={300}
+            height={300}
+            className="mx-auto gap-4 mb-4"
+          />          
           <div className="container mx-auto px-4">
             <motion.h2
               variants={slideInFromTop}
