@@ -27,7 +27,7 @@ export default function AboutSection() {
             className="mx-auto"
           />
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-amber-600 to-slate-800 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 bg-clip-text text-transparent"
             initial="initial"
             animate="animate"
             variants={pulseAnimation}

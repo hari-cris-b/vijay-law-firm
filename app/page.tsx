@@ -236,9 +236,11 @@ export default function LawFirmLandingPage() {
       </motion.header>
 
       <main>
-        <Suspense fallback={<div className="h-screen bg-gray-800 animate-pulse"></div>}>
-          <HeroSection />
-        </Suspense>
+        <section id="home" aria-label="Hero Section">
+          <Suspense fallback={<div className="h-screen bg-gray-800 animate-pulse"></div>}>
+            <HeroSection />
+          </Suspense>
+        </section>
 
         <Suspense fallback={<div className="h-96 bg-gray-50 animate-pulse"></div>}>
           <AboutSection />
@@ -274,7 +276,7 @@ export default function LawFirmLandingPage() {
                 className="mx-auto"
               />
               <motion.h2
-                className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-amber-600 to-slate-800 bg-clip-text text-transparent"
+                className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 bg-clip-text text-transparent"
                 initial="initial"
                 animate="animate"
                 variants={pulseAnimation}
@@ -356,7 +358,7 @@ export default function LawFirmLandingPage() {
                 className="mx-auto"
               />
               <motion.h2
-                className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-amber-600 to-slate-800 bg-clip-text text-transparent"
+                className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 bg-clip-text text-transparent"
                 initial="initial"
                 animate="animate"
                 variants={pulseAnimation}
@@ -405,7 +407,7 @@ export default function LawFirmLandingPage() {
               className="text-center mb-16"
             >
               <motion.h2
-                className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-amber-600 to-slate-800 bg-clip-text text-transparent"
+                className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 bg-clip-text text-transparent"
                 initial="initial"
                 animate="animate"
                 variants={pulseAnimation}
@@ -514,7 +516,7 @@ export default function LawFirmLandingPage() {
                 className="mx-auto"
               />
               <motion.h2
-                className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-amber-600 to-slate-800 bg-clip-text text-transparent"
+                className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 bg-clip-text text-transparent"
                 initial="initial"
                 animate="animate"
                 variants={pulseAnimation}

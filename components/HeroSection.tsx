@@ -55,16 +55,38 @@ export default function HeroSection() {
             alt="Crusaders Law Firm Logo"
             width={400}
             height={400}
-            className="mx-auto"
+            className="mx-auto shadow-lg"
           />
         </motion.div>
 
         <motion.h1
           variants={fadeIn}
-          className="text-4xl md:text-6xl font-bold pb-6 bg-gradient-to-r from-slate-900 via-amber-600 to-slate-800 bg-clip-text text-transparent leading-tight"
+          className="text-4xl md:text-6xl font-bold pb-6 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 bg-clip-text text-transparent leading-tight"
         >
           Expert Legal Solutions
         </motion.h1>
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                duration: 20,
+                ease: "linear",
+              },
+            }}
+            className="flex whitespace-nowrap"
+          >
+            <h2 className="text-2xl md:text-2xl pb-2 bg-gradient-to-r from-slate-900 via-amber-600 to-slate-800 bg-clip-text text-transparent leading-tight">
+              Justice. Integrity. Excellence. Justice. Integrity. Excellence.
+            </h2>
+            <h2 className="text-2xl md:text-2xl pb-2 bg-gradient-to-r from-slate-900 via-amber-600 to-slate-800 bg-clip-text text-transparent leading-tight ml-8">
+              Justice. Integrity. Excellence. Justice. Integrity. Excellence.
+            </h2>
+          </motion.div>
+        </div>
         <motion.p
           variants={fadeIn}
           className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed text-slate-300"

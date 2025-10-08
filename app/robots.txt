@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Block access to admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+
+# Allow access to CSS and JS
+Allow: /_next/static/
+Allow: *.css
+Allow: *.js
+
+# Sitemap
+Sitemap: https://crusaderslawfirm.com/sitemap.xml
