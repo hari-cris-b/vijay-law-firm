@@ -336,6 +336,145 @@ export default function LawFirmLandingPage() {
           </div>
         </motion.section>
 
+        {/* Our Client Partners Section */}
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerChildren}
+          className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white"
+        >
+          <div className="container mx-auto px-4">
+            <motion.div
+              variants={slideInFromTop}
+              className="text-center mb-16"
+            >
+              <motion.h2
+                className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-600 bg-clip-text text-transparent"
+                initial="initial"
+                animate="animate"
+                variants={pulseAnimation}
+              >
+                Our Client Partners
+              </motion.h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
+                Trusted partnerships that drive our success and client satisfaction
+              </p>
+            </motion.div>
+
+            <div className="max-w-6xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
+              >
+                <div className="text-center mb-8">
+                  <h3 className="text-3xl font-bold text-gray-800 mb-6">Our Valued Partners</h3>
+                  <div className="relative w-full overflow-hidden py-8">
+                    <motion.div
+                      animate={{
+                        x: ["0%", "-50%"],
+                      }}
+                      transition={{
+                        x: {
+                          repeat: Infinity,
+                          duration: 20,
+                          ease: "linear",
+                        },
+                      }}
+                      className="flex whitespace-nowrap"
+                    >
+                      <div className="flex space-x-12 text-xl md:text-2xl font-semibold text-gray-700">
+                        <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">Ayan Briyani</span>
+                        <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">Isha Financial Services</span>
+                        <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">ALVS Enterprises</span>
+                        <span className="bg-gradient-to-r from-purple-500 to-violet-500 bg-clip-text text-transparent">Mukund Associates</span>
+                        <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">Porali Associates</span>
+                      </div>
+                      <div className="flex space-x-12 text-xl md:text-2xl font-semibold text-gray-700 ml-12">
+                        <span className="bg-gradient-to-r from-amber-500 to-yellow-500 bg-clip-text text-transparent">Ayan Briyani</span>
+                        <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">Isha Financial Services</span>
+                        <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">ALVS Enterprises</span>
+                        <span className="bg-gradient-to-r from-purple-500 to-violet-500 bg-clip-text text-transparent">Mukund Associates</span>
+                        <span className="bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">Porali Associates</span>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-xl border border-amber-200"
+                  >
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl font-bold text-white">A</span>
+                      </div>
+                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Ayan Briyani</h4>
+                      <p className="text-gray-600 text-sm">Culinary Excellence Partner</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200"
+                  >
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl font-bold text-white">I</span>
+                      </div>
+                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Isha Financial Services</h4>
+                      <p className="text-gray-600 text-sm">Financial Advisory Partner</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200"
+                  >
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl font-bold text-white">A</span>
+                      </div>
+                      <h4 className="text-lg font-semibold text-gray-800 mb-2">ALVS Enterprises</h4>
+                      <p className="text-gray-600 text-sm">Business Solutions Partner</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-br from-purple-50 to-violet-50 p-6 rounded-xl border border-purple-200"
+                  >
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-violet-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl font-bold text-white">M</span>
+                      </div>
+                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Mukund Associates</h4>
+                      <p className="text-gray-600 text-sm">Professional Services Partner</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-xl border border-red-200"
+                  >
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-r from-red-400 to-pink-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-2xl font-bold text-white">P</span>
+                      </div>
+                      <h4 className="text-lg font-semibold text-gray-800 mb-2">Porali Associates</h4>
+                      <p className="text-gray-600 text-sm">Consulting Services Partner</p>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.section>
+
         {/* Team Section - keeping inline for now */}
         <motion.section
           initial="hidden"

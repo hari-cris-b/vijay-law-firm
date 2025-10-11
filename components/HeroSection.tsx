@@ -55,7 +55,7 @@ export default function HeroSection() {
             alt="Crusaders Law Firm Logo"
             width={400}
             height={400}
-            className="mx-auto shadow-lg"
+            className="mx-auto"
           />
         </motion.div>
 
