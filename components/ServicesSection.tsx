@@ -82,7 +82,13 @@ function ServiceCard({ icon: Icon, title, description, features, color, index }:
         scale: 1.03,
         boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
       }}
-      className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300"
+      className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer"
+      onClick={() => {
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+          servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }}
     >
       <div className="p-8">
         <motion.div

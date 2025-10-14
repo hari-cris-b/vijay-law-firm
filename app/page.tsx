@@ -69,27 +69,27 @@ export default function LawFirmLandingPage() {
     title: "Advocate",
     qualification: "MBA, BL.",
     role: "Founder & Managing Partner",
-    image: "/images/P.Vijayakumar.png"
+    image: "/images/TeamMembers/P.Vijayakumar.png"
   };
 
   const seniorTeam = [
-    { name: "K.M. Anand Joshi", qualification: "BA, BL." },
-    { name: "E. Jenni", qualification: "BA, BL." },
-    { name: "M. Duraimurugan", qualification: "BA, BL." },
-    { name: "R.G. Sridhar", qualification: "BA, BL." },
-    { name: "T. Dhayalamoorthy", qualification: "BA, BL." }
+    { name: "K.M. Anand Joshi", qualification: "BA, BL.", image: "/images/SeniorTeam/K.M.Anand_Joshi.png" },
+    { name: "E. Jenni", qualification: "BA, BL.", image: "/images/SeniorTeam/E.Jenni.jpg" },
+    { name: "M. Duraimurugan", qualification: "BA, BL.", image: "/images/SeniorTeam/M.Duraimurugan.jpg" },
+    { name: "R.G. Sridhar", qualification: "BA, BL.", image: "/images/SeniorTeam/R.G.Sridhar.png" },
+    { name: "T. Dhayalamoorthy", qualification: "BA, BL.", image: "/images/placeholder.png" }
   ];
 
   const teamMembers = [
-    { name: "P. Dinesh Saravanan", title: "Advocate", qualification: "BA, BL.", role: "Associate" },
-    { name: "J. Jaya Pradhap", title: "Advocate", qualification: "BE,BL.", role: "Associate" },
-    { name: "K. Jaganathan", title: "Advocate", qualification: "M.Com, BL.", role: "Associate" },
-    { name: "S. Sathish", title: "Advocate", qualification: "M.Com, BL.", role: "Associate" },
-    { name: "G. Jebaraj", title: "Advocate", qualification: "B.Sc, BL.", role: "Associate" },
-    { name: "V. Vignesh", title: "Advocate", qualification: "BA, BL.", role: "Associate" },
-    { name: "K. Balaganesh", title: "Advocate", qualification: "BA, BL.", role: "Associate" },
-    { name: "P. Gayathri Pandian", title: "Advocate", qualification: "BA, BL.", role: "Associate" },
-    { name: "M. Ashwini Maruthupandi", title: "Advocate", qualification: "BCA, BL.", role: "Associate" }    
+    { name: "P. Dinesh Saravanan", title: "Advocate", qualification: "BA, BL.", role: "Associate", image: "/images/placeholder.png" },
+    { name: "J. Jaya Pradhap", title: "Advocate", qualification: "BE,BL.", role: "Associate", image: "/images/placeholder.png" },
+    { name: "K. Jaganathan", title: "Advocate", qualification: "M.Com, BL.", role: "Associate", image: "/images/placeholder.png" },
+    { name: "S. Sathish", title: "Advocate", qualification: "M.Com, BL.", role: "Associate", image: "/images/placeholder.png" },
+    { name: "G. Jebaraj", title: "Advocate", qualification: "B.Sc, BL.", role: "Associate", image: "/images/placeholder.png" },
+    { name: "V. Vignesh", title: "Advocate", qualification: "BA, BL.", role: "Associate", image: "/images/placeholder.png" },
+    { name: "K. Balaganesh", title: "Advocate", qualification: "BA, BL.", role: "Associate", image: "/images/placeholder.png" },
+    { name: "P. Gayathri Pandian", title: "Advocate", qualification: "BA, BL.", role: "Associate", image: "/images/placeholder.png" },
+    { name: "M. Ashwini Maruthupandi", title: "Advocate", qualification: "BCA, BL.", role: "Associate", image: "/images/TeamMembers/M.Ashwini_Maruthupandi.jpg" }
   ];
 
   return (
@@ -526,11 +526,15 @@ export default function LawFirmLandingPage() {
                   <Card className="overflow-hidden transition-all duration-300 hover:shadow-2xl">
                     <CardContent className="p-8 text-center">
                       <Image
-                        src="/images/placeholder.png"
+                        src={member.image}
                         alt={`${member.name} - Senior Advocate`}
-                        width={150}
-                        height={150}
+                        width={200}
+                        height={200}
                         className="rounded-full mx-auto mb-6 shadow-lg"
+                        onError={(e) => {
+                          const imgElement = e.target as HTMLImageElement;
+                          imgElement.src = '/images/placeholder.png';
+                        }}
                       />
                       <h3 className="text-xl font-bold mb-3 text-gray-800">{member.name}</h3>
                       <p className="text-yellow-600 font-semibold mb-2">Senior Advocate</p>
@@ -615,11 +619,15 @@ export default function LawFirmLandingPage() {
                   <Card className="overflow-hidden transition-all duration-300 hover:shadow-2xl">
                     <CardContent className="p-8 text-center">
                       <Image
-                        src="/images/placeholder.png"
+                        src={member.image}
                         alt={`${member.name} - ${member.title}`}
                         width={150}
                         height={150}
                         className="rounded-full mx-auto mb-6 shadow-lg"
+                        onError={(e) => {
+                          const imgElement = e.target as HTMLImageElement;
+                          imgElement.src = '/images/placeholder.png';
+                        }}
                       />
                       <h3 className="text-xl font-bold mb-3 text-gray-800">{member.name}</h3>
                       <p className="text-yellow-600 font-semibold mb-2">{member.title}</p>
@@ -778,28 +786,89 @@ export default function LawFirmLandingPage() {
         initial="hidden"
         animate="visible"
         variants={fadeIn}
-        className="bg-gray-900 text-white py-8"
+        className="bg-gray-900 text-white py-12"
       >
-        <div className="container mx-auto px-4 text-center">
-          <div className="relative inline-block">
-            <Image
-              src="/images/CLFico2.png"
-              alt="Crusaders Law Firm Logo"
-              width={150}
-              height={150}
-              className="mx-auto relative z-10"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-yellow-400/20 rounded-full blur-md scale-100"></div>
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Brand Name and Logo */}
+            <div className="text-center md:text-left">
+              <div className="relative inline-block mb-4">
+                <Image
+                  src="/images/CLFico2.png"
+                  alt="Crusaders Law Firm Logo"
+                  width={120}
+                  height={120}
+                  className="mx-auto md:mx-0 relative z-10"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-yellow-400/20 rounded-full blur-md scale-100"></div>
+              </div>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-amber-200 bg-clip-text text-transparent mb-2">
+                Crusaders Law Firm
+              </h3>
+              <p className="text-amber-200/80 text-sm mb-2">Madras High Court, Chennai</p>
+              <p className="text-white-200/80 text-sm">Dedicated to providing comprehensive legal services with integrity and professionalism.</p>              
+            </div>
+
+            {/* Contact Us */}
+            <div className="text-center md:text-left">
+              <h4 className="font-semibold mb-4 text-yellow-400">Contact Us</h4>
+              <div className="space-y-3">
+                <div className="mt-4">
+                  <p className=" text-gray-300 leading-relaxed">
+                    <span className="font-semibold">Address:</span><br />
+                    No:32, Q block, 5th Street,<br />
+                    Agathiyar Nagar,<br />
+                    Villivakkam, Chennai - 49
+                  </p>
+                </div>
+                <div className="flex items-center justify-center md:justify-start gap-3">
+                  <Phone className="h-4 w-4 text-yellow-400" />
+                  <a href="tel:08248168261" className="hover:text-yellow-400 transition-colors">0824 816 8261</a>
+                </div>
+                <div className="flex items-center justify-center md:justify-start gap-3">
+                  <Phone className="h-4 w-4 text-yellow-400" />
+                  <a href="tel:08682819999" className="hover:text-yellow-400 transition-colors">0868 281 9999</a>
+                </div>
+                <div className="flex items-center justify-center md:justify-start gap-3">
+                  <Mail className="h-4 w-4 text-yellow-400" />
+                  <a href="mailto:info@crusaderslawfirm.com" className="hover:text-yellow-400 transition-colors">info@crusaderslawfirm.com</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Fast Links */}
+            <div className="text-center md:text-left">
+              <h4 className="text-xl font-semibold mb-4 text-yellow-400">Fast Links</h4>
+              <ul className="space-y-2 ">
+                <li><a href="#home" className="text-gray-300 hover:text-yellow-400 transition-colors">Home</a></li>
+                <li><a href="#about" className="text-gray-300 hover:text-yellow-400 transition-colors">About</a></li>
+                <li><a href="#why-choose-us" className="text-gray-300 hover:text-yellow-400 transition-colors">Why Choose Us</a></li>
+                <li><a href="#services" className="text-gray-300 hover:text-yellow-400 transition-colors">Services</a></li>
+                <li><a href="#partners" className="text-gray-300 hover:text-yellow-400 transition-colors">Partners</a></li>
+                <li><a href="#team" className="text-gray-300 hover:text-yellow-400 transition-colors">Team</a></li>
+                <li><a href="#contact" className="text-gray-300 hover:text-yellow-400 transition-colors">Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div className="text-center md:text-left">
+              <h4 className="text-xl font-semibold mb-4 text-yellow-400">Services</h4>
+              <ul className="space-y-2">
+                <li><span className="text-gray-300">Civil Law</span></li>
+                <li><span className="text-gray-300">Criminal Law</span></li>
+                <li><span className="text-gray-300">Corporate Law</span></li>
+                <li><span className="text-gray-300">Family Law</span></li>
+                <li><span className="text-gray-300">Property Law</span></li>
+                <li><span className="text-gray-300">Legal Consultation</span></li>
+              </ul>
+            </div>
           </div>
-          <p className="mb-4">Madras High Court, Chennai</p>
-          <div className="flex justify-center items-center gap-4 mb-4">
-            <Phone className="h-4 w-4" />
-            <a href="tel:8248168261" className="hover:text-yellow-400 transition-colors">8248168261</a>
-            <a href="tel:8682819999" className="hover:text-yellow-400 transition-colors">8682819999</a>
-          </div>
-          <div className="flex justify-center items-center gap-2">
-            <Mail className="h-4 w-4" />
-            <a href="mailto:info@crusaderslawfirm.com" className="hover:text-yellow-400 transition-colors">info@crusaderslawfirm.com</a>
+
+          {/* Copyright */}
+          <div className="h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent mt-8 mb-8 text-center">
+            <p className="text-gray-400 pt-2">
+              Copyright © {new Date().getFullYear()} Crusaders Law Firm. All rights reserved.
+            </p>
           </div>
         </div>
       </motion.footer>
